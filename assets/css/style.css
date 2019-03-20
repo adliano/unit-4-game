@@ -1,3 +1,10 @@
-.second-row{
-    height: 200px;
+
+
+.hidden-element{
+    /* visibility: hidden; */
+    display: none;
+}
+
+.show-element{
+    display: block;
 }
