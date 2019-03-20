@@ -68,7 +68,7 @@ $(document).ready(function () {
                 // add class to display then
                 $(bottonImages[i]).addClass("show-elemen");
                 // add a class to make the next event be handle by the next event listener
-                $(bottonImages[i]).addClass("enemyImage");     
+                //$(bottonImages[i]).addClass("enemyImage");     
             } 
         });
 
@@ -81,7 +81,7 @@ $(document).ready(function () {
     // TODO: NOT WORKIG
     $(".enemyImage").on("click", function (event) {
         // ------ debugging ------- //
-        console.log("inside enemyEvent at line 83");
+        console.log("inside enemyEvent");
         
     });
 
