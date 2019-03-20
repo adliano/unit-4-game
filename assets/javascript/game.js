@@ -10,38 +10,39 @@ $(document).ready(function () {
     // 2)  to know witch on as select we can remove a special class name and get all the children using class name
     // 3)  load all the other img to second row and change it to bg-danger
 
+    // TODO: If no use remove
     // Flags (Booleans) used to control when user selects the Attacker and defender
     var isAttackerSelected = false;
     var isEnemySelected = false;
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    // onclick event added using class selector (attackerImage) for every image
-    // this will be the first event listener to be called, inside we will remove 
-    // the sector to void this listener be called until game is reflesh
-    //////////////////////////////////////////////////////////////////////////////////
-    $(".attackerImage").on("click", function (event) {
+    ////////////////////////////////////////////////////////////////////////////////////
+    //// onclick event added using class selector $(".setAttacker") for every image ////
+    //// this will be the first event listener to be called, inside we will remove  ////
+    //// the selector to void this listener be called until game is reload          ////
+    ////////////////////////////////////////////////////////////////////////////////////
+    $(".setAttacker").on("click", function (event) {
         // ----- debugging ----- //
         //console.log("clicked on image");
         //$(this).removeClass("bg-success");
 
         // Get Array[] with attackers images
-        var topImages = $("#attackerImgsColumn").children();
+        let topImages = $("#attackerImgsColumn").children();
         // Get Array[] with enemy images
-        var bottonImages = $("#enemyImgsColumn").children();
+        let bottonImages = $("#enemyImgsColumn").children();
         // Get the index of the clicked (Selected) character image
-        var index = Array.from(topImages).indexOf(event.target);
+        let attackerIndex = Array.from(topImages).indexOf(event.target);
         // ------ debugging ----- //
-        //console.log(index);
+        //console.log(attackerIndex);
 
         // using map to interate 
         topImages.map((i, element) => {
             let currentCharacter = $(element);
 
-            // remove this onclick event 
-            currentCharacter.removeClass("attackerImage");
+            // remove this onclick event from img to void user click on it again
+            currentCharacter.removeClass("setAttacker");
 
             // Finding the selected Attacker
-            if(i == index){
+            if(i == attackerIndex){
                 // ----- debugging ----- //
                 //console.log(element);
 
@@ -60,15 +61,16 @@ $(document).ready(function () {
 
                 // hidde the images not selected from the first col by 
                 // removing the show-element class
-                // TODO: currentCharacter.removeClass("show-elemen");
-                // adding hidden-element class to hidden element
+                // adding hidden-element class to hidden character
                 currentCharacter.addClass("hidden-element");
-                // removing hidden-element class from the others characters
+                // removing hidden-element class from the others characters on second row
+                // this will display enemy to be selected by user
+                // the second row event will be handle by another function below $(".setEnemy")...
                 $(bottonImages[i]).removeClass("hidden-element");
-                // add class to display then
-                $(bottonImages[i]).addClass("show-elemen");
-                // add a class to make the next event be handle by the next event listener
-                //$(bottonImages[i]).addClass("enemyImage");     
+                //    add class to display then
+                //    $(bottonImages[i]).addClass("show");
+                //    add a class to make the next event be handle by the next event listener
+                //    $(bottonImages[i]).addClass("setEnemy");     
             } 
         });
 
@@ -78,10 +80,9 @@ $(document).ready(function () {
     // enemyImage event listner, this event will handle the enyme selection 
     // by user
     /////////////////////////////////////////////////////////////////////////
-    // TODO: NOT WORKIG
-    $(".enemyImage").on("click", function (event) {
+    $(".setEnemy").on("click", function (event) {
         // ------ debugging ------- //
-        console.log("inside enemyEvent");
+        // console.log("inside enemyEvent");
         
     });
 
