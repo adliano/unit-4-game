@@ -5,12 +5,7 @@ Berkely Bootcamp
 CSS file to hold all style code used for RPG game
 */
 
-
-.hidden-element{
-    /* visibility: hidden; */
-    display: none;
+.card-size{
+    max-width: 14rem;
 }
 
-.show-element{
-    display: block;
-}

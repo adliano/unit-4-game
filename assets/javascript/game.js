@@ -10,12 +10,12 @@ $(document).ready(function () {
     // 2)  to know witch on as select we can remove a special class name and get all the children using class name
     // 3)  load all the other img to second row and change it to bg-danger
 
-    // **** Global Variables **** \\
-    // Flags (Booleans) used to control 
-    //when user selects the Attacker and defender
+    // ******** Global Variables ******** \\
+    // Flags (Booleans) used to control when
+    // user selects the Attacker and defender
     var isAttackerSelected = false;
     var isEnemySelected = false;
-    // ************************* //
+    // ********************************* //
 
     /////////////////////////////////// ONCLICK //////////////////////////////////////////
     //// onclick event added using class selector $(".setCharacter") for every image  ////

@@ -1,25 +1,21 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- RESEt CSS -->
   <link rel="stylesheet" href="./assets/css/reset.css">
+  
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <!-- Style css -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Game Javascript -->
@@ -39,32 +35,69 @@
   <!-- FIRST ROW WITH IMG  -->
   <div class="container mb-5 pb-5">
     <h3 class="text-light m-2 mx-5">Choose Your Character</h3>
-    <div class="row">
-      <div id="attackerColumn" class="col-md-12 ml-4">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/chewbacca.webp" alt="Chewbacca"
-          attribute="0">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/han-solo.webp" alt="Han Solo"
-          attribute="1">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/leia.webp" alt="Leia" attribute="2">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/luke.webp" alt="Luke" attribute="3">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/poe.webp" alt="Poe" attribute="4">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/storm-trooper.webp" alt="Trooper"
-          attribute="5">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/vader.webp" alt="Vader" attribute="6">
+    <div id="attackerColumn" class="row">
+      <!-- Columns with the Characters set to show: -->
+      <!--  6 Imgs on lg -->
+      <!--  3 Imgs on md -->
+      <!--  1 Img  on sm -->
+      <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
+          <div class="card bg-success card-size p-1">
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Chewbacca</h4>
+              <img class="bg-success px-1 m-1" src="./assets/images/chewbacca.webp" alt="Leia" attribute="2">
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+            </div>
       </div>
-    </div><!-- :::: END first img row :::: -->
+      <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
+          <div class="card bg-success card-size p-1">
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Han Solo</h4>
+              <img class="bg-success px-1 m-1" src="./assets/images/han-solo.webp" alt="Leia" attribute="2">
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+            </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
+          <div class="card bg-success card-size p-1">
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Leia</h4>
+              <img class="bg-success px-1 m-1" src="./assets/images/leia.webp" alt="Leia" attribute="2">
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+            </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
+          <div class="card bg-success card-size p-1">
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Luke</h4>
+              <img class="bg-success px-1 m-1" src="./assets/images/luke.webp" alt="Leia" attribute="2">
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+            </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
+          <div class="card bg-success card-size p-1">
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Trooper</h4>
+              <img class="bg-success px-1 m-1" src="./assets/images/storm-trooper.webp" alt="Leia" attribute="2">
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+            </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
+          <div class="card bg-success card-size p-1">
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Dark Vader</h4>
+              <img class="bg-success px-1 m-1" src="./assets/images/vader.webp" alt="Leia" attribute="2">
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+            </div>
+      </div>
+      
+      
+
+    </div><!-- :::: END Attacker row :::: -->
 
     <h3 class="text-light m-2 mx-5">Enemies Available To Attack</h3>
     <!-- Second IMG ROW -->
-    <div class="row second-row">
+    <div id="enemiesImgsColumn" class="row">
       <!-- Column to Hold Enemies remaining to play  -->
-      <div id="enemiesImgsColumn" class="col-md-12 ml-4">
+      <!-- <div  class="col-md-12 ml-4"> -->
         <!-- 
         img will show here dynamicly we will have 7 images 
         on row one after user select one we will show 6 images 
         to this row
       -->
-      </div>
+      <!-- </div> -->
     </div><!-- :::: END second img row :::: -->
 
     <h3 class="text-light m-2 mx-5">Fight Section</h3>
@@ -79,7 +112,7 @@
       <div id="enemyColumn" class="col-md-10 ml-4">
         <!-- enemy img will be added here dynamically -->
       </div>
-      <div class="col-md-2">
+      <div class="col">
         <!--Empty col-->
       </div>
     </div>
@@ -89,3 +122,17 @@
 </body>
 
 </html>
+
+  <!-- <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/chewbacca.webp" alt="Chewbacca" attribute="0">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/han-solo.webp" alt="Han Solo"attribute="1">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/leia.webp" alt="Leia" attribute="2">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/luke.webp" alt="Luke" attribute="3">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/poe.webp" alt="Poe" attribute="4">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/storm-trooper.webp" alt="Trooper"attribute="5">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/vader.webp" alt="Vader" attribute="6"> -->
+
+        <!-- <div class="card w-25 bg-success card-size p-1">
+          <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Leia</h4>
+          <img class="bg-success px-1 m-1 setCharacter" src="./assets/images/leia.webp" alt="Leia" attribute="2">
+          <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+        </div> -->
