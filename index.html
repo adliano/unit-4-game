@@ -8,20 +8,18 @@
   <!-- RESEt CSS -->
   <link rel="stylesheet" href="./assets/css/reset.css">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-          crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-          crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-          crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <!-- Style css -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Game Javascript -->
@@ -43,13 +41,16 @@
     <h3 class="text-light m-2 mx-5">Choose Your Character</h3>
     <div class="row">
       <div id="attackerColumn" class="col-md-12 ml-4">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/chewbacca.webp" alt="Chewbacca" attribute="0">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/han-solo.webp" alt="Han Solo" attribute="1">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/leia.webp" alt="Leia" attribute="2">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/luke.webp" alt="Luke" attribute="3">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/poe.webp" alt="Poe" attribute="4">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/storm-trooper.webp" alt="Trooper" attribute="5">
-        <img class="pt-1 bg-success p-2 my-1 setAttacker" src="./assets/images/vader.webp" alt="Vader" attribute="6">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/chewbacca.webp" alt="Chewbacca"
+          attribute="0">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/han-solo.webp" alt="Han Solo"
+          attribute="1">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/leia.webp" alt="Leia" attribute="2">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/luke.webp" alt="Luke" attribute="3">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/poe.webp" alt="Poe" attribute="4">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/storm-trooper.webp" alt="Trooper"
+          attribute="5">
+        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/vader.webp" alt="Vader" attribute="6">
       </div>
     </div><!-- :::: END first img row :::: -->
 
@@ -64,27 +65,26 @@
         to this row
       -->
       </div>
-    </div>
-  </div><!-- :::: END second img row :::: -->
+    </div><!-- :::: END second img row :::: -->
 
-  <h3 class="text-light m-2 mx-5">Fight Section</h3>
-  <!-- Attack Button -->
-  <button id="btn-attack" type="button" class="btn btn-primary m-2 mx-5 w-25">Attack</button>
+    <h3 class="text-light m-2 mx-5">Fight Section</h3>
+    <!-- Attack Button -->
+    <button id="btn-attack" type="button" class="btn btn-primary m-2 mx-5 w-25">Attack</button>
 
-  <h3 class="text-light m-2 mx-5">Defender</h3>
-  <!-- Third Img row -->
-  <div class="row">
-    <!-- Column to hold current enemy -->
-    <!-- single img of current enemy will be display here -->
-    <div id="enemyColumn" class="col-md-10 ml-4">
-      <!-- enemy img will be added here dynamically -->
+    <h3 class="text-light m-2 mx-5">Defender</h3>
+    <!-- Third Img row -->
+    <div class="row">
+      <!-- Column to hold current enemy -->
+      <!-- single img of current enemy will be display here -->
+      <div id="enemyColumn" class="col-md-10 ml-4">
+        <!-- enemy img will be added here dynamically -->
+      </div>
+      <div class="col-md-2">
+        <!--Empty col-->
+      </div>
     </div>
-    <div class="col-md-2">
-      <!--Empty col-->
-    </div>
-  </div>
-  <!-- If game over, user will press this Button to reload page -->
-  <button id="relod-attack" type="button" class="btn btn-primary m-2 mx-5 mb-5 w-25">Restart</button>
+    <!-- If game over, user will press this Button to reload page -->
+    <button id="relod-attack" type="button" class="btn btn-primary m-2 mx-5 mb-5 w-25">Restart</button>
   </div><!-- :::: END of container :::: -->
 </body>
 
