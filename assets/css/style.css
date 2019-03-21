@@ -9,3 +9,6 @@ CSS file to hold all style code used for RPG game
     max-width: 14rem;
 }
 
+.invisible{
+    display: none;
+}

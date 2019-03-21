@@ -34,8 +34,8 @@
   <h1 class="text-light text-right mr-5 p-3 pr-5">Star Wars RPG!</h1>
   <!-- FIRST ROW WITH IMG  -->
   <div class="container mb-5 pb-5">
-    <h3 class="text-light m-2 mx-5">Choose Your Character</h3>
-    <div id="attackerColumn" class="row">
+    <h3 id="attackerHeader" class="text-light">Choose Your Attacker</h3>
+    <div class="row">
       <!-- Columns with the Characters set to show: -->
       <!--  6 Imgs on lg -->
       <!--  3 Imgs on md -->
@@ -43,81 +43,79 @@
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Chewbacca</h4>
-              <img class="bg-success px-1 m-1" src="./assets/images/chewbacca.webp" alt="Leia" attribute="2">
+              <img class="px-1 m-1" src="./assets/images/chewbacca.webp" alt="Leia" attribute="2">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Han Solo</h4>
-              <img class="bg-success px-1 m-1" src="./assets/images/han-solo.webp" alt="Leia" attribute="2">
+              <img class="px-1 m-1" src="./assets/images/han-solo.webp" alt="Leia" attribute="2">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Leia</h4>
-              <img class="bg-success px-1 m-1" src="./assets/images/leia.webp" alt="Leia" attribute="2">
+              <img class="px-1 m-1" src="./assets/images/leia.webp" alt="Leia" attribute="2">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Luke</h4>
-              <img class="bg-success px-1 m-1" src="./assets/images/luke.webp" alt="Leia" attribute="2">
+              <img class="px-1 m-1" src="./assets/images/luke.webp" alt="Leia" attribute="2">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Trooper</h4>
-              <img class="bg-success px-1 m-1" src="./assets/images/storm-trooper.webp" alt="Leia" attribute="2">
+              <img class="px-1 m-1" src="./assets/images/trooper.webp" alt="Leia" attribute="2">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Dark Vader</h4>
-              <img class="bg-success px-1 m-1" src="./assets/images/vader.webp" alt="Leia" attribute="2">
+              <img class="px-1 m-1" src="./assets/images/vader.webp" alt="Leia" attribute="2">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
             </div>
       </div>
-      
-      
-
     </div><!-- :::: END Attacker row :::: -->
+    <!-- This Header will be display after User select Attacker -->
+    <h3 id="enemiesHeader" class="text-light my-2 invisible">Enemies Available To Attack</h3>
 
-    <h3 class="text-light m-2 mx-5">Enemies Available To Attack</h3>
-    <!-- Second IMG ROW -->
-    <div id="enemiesImgsColumn" class="row">
-      <!-- Column to Hold Enemies remaining to play  -->
-      <!-- <div  class="col-md-12 ml-4"> -->
+    <!-- Enemies ROW -->
+    <!-- ROW to Hold Enemies remaining to play  -->
+    <div id="enemiesRow" class="row">
         <!-- 
         img will show here dynamicly we will have 7 images 
         on row one after user select one we will show 6 images 
         to this row
       -->
-      <!-- </div> -->
     </div><!-- :::: END second img row :::: -->
+    <!-- This Header will be display after user selects his Enemy -->
+    <h3 id="fightHeader" class="text-light my-2 invisible">Fight Section</h3>
 
-    <h3 class="text-light m-2 mx-5">Fight Section</h3>
     <!-- Attack Button -->
-    <button id="btn-attack" type="button" class="btn btn-primary m-2 mx-5 w-25">Attack</button>
-
-    <h3 class="text-light m-2 mx-5">Defender</h3>
+    <!-- This Button will be display after user selects his Enemy -->
+    <button id="btn-attack" type="button" class="btn btn-primary my-2 w-25 invisible">Attack</button>
+    <!-- This Header will be display after user selects his Enemy -->
+    <h3 id="enemyHeader" class="text-light my-2 invisible">Your Enemy</h3>
     <!-- Third Img row -->
-    <div class="row">
+    <div id="enemyColumn"  class="row">
       <!-- Column to hold current enemy -->
       <!-- single img of current enemy will be display here -->
-      <div id="enemyColumn" class="col-md-10 ml-4">
+      <!--              <div id="enemyColumn" class="col-md-10 ml-4"> -->
         <!-- enemy img will be added here dynamically -->
-      </div>
-      <div class="col">
+      <!--                 </div> -->
+      <!-- <div class="col"> -->
         <!--Empty col-->
-      </div>
+      <!-- </div> -->
     </div>
     <!-- If game over, user will press this Button to reload page -->
-    <button id="relod-attack" type="button" class="btn btn-primary m-2 mx-5 mb-5 w-25">Restart</button>
+    <button id="relod-attack" type="button" class="btn btn-primary m-2 mx-5 mb-5 w-25 invisible">Restart</button>
   </div><!-- :::: END of container :::: -->
 </body>
 

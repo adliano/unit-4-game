@@ -5,6 +5,11 @@ Berkely Bootcamp
 JS file to hold all JQuery code used for RPG game
 */
 
+// attackerColumn
+//  attackerRow
+// enemiesImgsColumn
+// enemiesRow
+
 $(document).ready(function () {
     // 1)  get all images belong to it parrent 
     // 2)  to know witch on as select we can remove a special class name and get all the children using class name
@@ -28,12 +33,16 @@ $(document).ready(function () {
             // Get all elements except the one user selected
             let _siblings = $(this).siblings();
             // Remove the green backgroung color (Bootstrap)
-            _siblings.removeClass("bg-success");
+            _siblings.children(".card").removeClass("bg-success"); /////////////
             // Add a Yellow background color (Bootstrap)
-            _siblings.addClass("bg-warning");
+            _siblings.children(".card").addClass("bg-warning"); ///////////
             // Append all elements to the Enemy Column 
             // *** (except the selected element) ***
-            $("#enemiesImgsColumn").append(_siblings);
+            $("#enemiesRow").append(_siblings);
+            //Display header
+            $("#enemiesHeader").removeClass("invisible");
+            // 
+            $("#attackerHeader").text("Your Attacker");
             // Change the satus of the flag
             isAttackerSelected = !isAttackerSelected;
         }
@@ -42,11 +51,17 @@ $(document).ready(function () {
             // Get Selected enemy
             let _enemy = $(this);
             // Remove the yellow bacground (Bootstrap)
-            _enemy.removeClass("bg-warning");
+            _enemy.children(".card").removeClass("bg-warning");
             // Add a Red background (Bootstrap)
-            _enemy.addClass("bg-danger");
+            _enemy.children(".card").addClass("bg-danger");
             // Add the selected enemy to enemyColumn
             $("#enemyColumn").append(_enemy);
+            // Display Fight Header
+            $("#fightHeader").removeClass("invisible");
+            // Display Enemy Header
+            $("#enemyHeader").removeClass("invisible");
+            // Display Attack Button
+            $("#btn-attack").removeClass("invisible");
             // Change the satus of the flag
             isEnemySelected = !isEnemySelected;
         } 
