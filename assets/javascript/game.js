@@ -11,14 +11,10 @@ $(document).ready(function () {
     // 3)  load all the other img to second row and change it to bg-danger
 
     // **** Global Variables **** \\
-    // TODO: If no use remove
     // Flags (Booleans) used to control 
     //when user selects the Attacker and defender
     var isAttackerSelected = false;
     var isEnemySelected = false;
-    var attackerImages = [];
-    var enemyImages = [];
-    var attackerIndex = 0;
     // ************************* //
 
     /////////////////////////////////// ONCLICK ////////////////////////////////////////
