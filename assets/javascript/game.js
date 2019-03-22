@@ -20,8 +20,8 @@ $(function () {
     //var userAttackRate = 0;
     //var enemyAttackRate = 0;
     // Attacker and Enemy HP rate
-    //var userHealth = 0;
-    //var enemyHealth = 0;
+    var attackerHealth = 0;
+    var enemyHealth = 0;
     // ********************************* //
 
     /******************************************************************************/ 
@@ -72,13 +72,11 @@ $(function () {
             // Generate the Attack rate for user
             userAttackRate = rand(5,25);
             // Get Attacker Health
-            userHealth = $(_attacker).attr("data-health");
-            /////------- DEBUGGING ------\\\\\\
-            alert(userHealth);
+            attackerHealth = $(_attacker).attr("data-health");
             // Change the satus of the flag
             isAttackerSelected = !isAttackerSelected;
             /////------- DEBUGGING ------\\\\\\
-            console.log(isAttackerSelected);
+            console.log(attackerHealth);
         }
         // Check if user selected the Enemy
         else if(!isEnemySelected){
@@ -100,6 +98,8 @@ $(function () {
             enemyAttackRate = rand(5,25);
             // Remove the onclick event from enemy
             $(_enemy).prop("onclick",null).off("click");
+            // Get enemy health
+            enemyHealth = $(_enemy).attr("data-health");
             // Change the satus of the flag
             isEnemySelected = !isEnemySelected;
         } 
