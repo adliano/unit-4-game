@@ -17,8 +17,8 @@ $(function () {
     var isAttackerSelected = false;
     var isEnemySelected = false;
     // Attacker and Enemy attack rates
-    //var userAttackRate = 0;
-    //var enemyAttackRate = 0;
+    var userAttackRate = 0;
+    var enemyAttackRate = 0;
     // Attacker and Enemy HP rate
     var attackerHealth = 0;
     var enemyHealth = 0;
@@ -43,18 +43,15 @@ $(function () {
     //// this will be the first event listener to be called, inside we will use some  ////
     //// flags (Bollean) to void user click on selected character twice               ////
     //////////////////////////////////////////////////////////////////////////////////////
-    $(".setCharacter").on("click", function (event) {
-        
+    $("#imagesContainer").on("click",".setCharacter", function (event) {
         // Check if user selected the Attacker
         if(!isAttackerSelected){
-
             let _attacker = $(event.currentTarget);
-            // Remove the class used to trig the onclick event
+            // Remove the class used to trig the onclick event,
+            // by removing the onclick will not be called again
             _attacker.removeClass("setCharacter");
-            // Remove the onclick event from attacker
-            $(_attacker).prop("onclick",null).off("click");
-
-            //console.dir(event.currentTarget);
+            // Another Approach to Remove the onclick event from attacker \\
+            // ***** $(_attacker).prop("onclick",null).off("click"); **** \\
 
             // Get all elements except the one user selected
             let _siblings = $(this).siblings();
@@ -65,18 +62,19 @@ $(function () {
             // Append all elements to the Enemy Column 
             // *** (except the selected element) ***
             $("#enemiesRow").append(_siblings);
-            //Display header
+            // Display Enemy header
             $("#enemiesHeader").removeClass("invisible");
             // Change Attacker Header Text
             $("#attackerHeader").text("Your Attacker");
             // Generate the Attack rate for user
             userAttackRate = rand(5,25);
             // Get Attacker Health
-            attackerHealth = $(_attacker).attr("data-health");
+            //attackerHealth = $(_attacker).attr("data-health");
+            attackerHealth = $(_attacker).find(".HPRate").text();
+            //console.log(`attackerHealth : ${attackerHealth}`);
             // Change the satus of the flag
             isAttackerSelected = !isAttackerSelected;
             /////------- DEBUGGING ------\\\\\\
-            console.log(attackerHealth);
         }
         // Check if user selected the Enemy
         else if(!isEnemySelected){
@@ -99,7 +97,9 @@ $(function () {
             // Remove the onclick event from enemy
             $(_enemy).prop("onclick",null).off("click");
             // Get enemy health
-            enemyHealth = $(_enemy).attr("data-health");
+            //enemyHealth = $(_enemy).attr("data-health");
+            enemyHealth = $(_enemy).find(".HPRate").text();
+            //console.log(`enemyHealth : ${enemyHealth}`);
             // Change the satus of the flag
             isEnemySelected = !isEnemySelected;
         } 

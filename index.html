@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- https://www.youtube.com/watch?v=klN2-ITjRt8&feature=youtu.be -->
 <html lang="en">
 <head>
   <!-- Required meta tags -->
@@ -33,7 +34,7 @@
   <!-- HEADER -->
   <h1 class="text-light text-right mr-5 p-3 pr-5">Star Wars RPG!</h1>
   <!-- FIRST ROW WITH IMG  -->
-  <div class="container mb-5 pb-5">
+  <div id="imagesContainer" class="container mb-5 pb-5">
     <h3 id="attackerHeader" class="text-light">Choose Your Attacker</h3>
     <div class="row">
       <!-- Columns with the Characters set to show: -->
@@ -44,42 +45,42 @@
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Chewbacca</h4>
               <img class="px-1 m-1" src="./assets/images/chewbacca.webp" alt="Chewbacca">
-              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="140">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Han Solo</h4>
               <img class="px-1 m-1" src="./assets/images/han-solo.webp" alt="Han">
-              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">140</h4>
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">140</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="110">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Leia</h4>
               <img class="px-1 m-1" src="./assets/images/leia.webp" alt="Leia">
-              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">110</h4>
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">110</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="150">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Luke</h4>
               <img class="px-1 m-1" src="./assets/images/luke.webp" alt="Luke">
-              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">150</h4>
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">150</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="130">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Trooper</h4>
               <img class="px-1 m-1" src="./assets/images/trooper.webp" alt="Trooper">
-              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">130</h4>
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">130</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="150">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Dark Vader</h4>
               <img class="px-1 m-1" src="./assets/images/vader.webp" alt="Vader">
-              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">150</h4>
+              <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">150</h4>
             </div>
       </div>
     </div><!-- :::: END Attacker row :::: -->
@@ -108,6 +109,14 @@
     <div id="enemyRow"  class="row">
       <!-- enemy img will be added here dynamically -->
       <!-- single img of current enemy will be display here -->
+    </div>
+    <!-- row to display current fight info -->
+    <div class="row mt-4">
+      <div class="col text-light">
+          <h4>You Attack <span id="attackerName"></span> by <span id="attackerHit">100</span></h4>
+          <h4><span id="enemyName"></span> attack you by <span id="enemyHit">100</span></h4>
+      </div>
+      
     </div>
     <!-- If game over, user will press this Button to reload page -->
     <!-- TODO: Display after game over or User won -->
