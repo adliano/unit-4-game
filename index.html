@@ -43,42 +43,42 @@
       <!--  1 Img  on sm -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="120">
           <div class="card bg-success card-size p-1">
-              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Chewbacca</h4>
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Chewbacca</h4>
               <img class="px-1 m-1" src="./assets/images/chewbacca.webp" alt="Chewbacca">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">120</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="140">
           <div class="card bg-success card-size p-1">
-              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Han Solo</h4>
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Han Solo</h4>
               <img class="px-1 m-1" src="./assets/images/han-solo.webp" alt="Han">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">140</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="110">
           <div class="card bg-success card-size p-1">
-              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Leia</h4>
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Leia</h4>
               <img class="px-1 m-1" src="./assets/images/leia.webp" alt="Leia">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">110</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="150">
           <div class="card bg-success card-size p-1">
-              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Luke</h4>
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Luke</h4>
               <img class="px-1 m-1" src="./assets/images/luke.webp" alt="Luke">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">150</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="130">
           <div class="card bg-success card-size p-1">
-              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Trooper</h4>
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Trooper</h4>
               <img class="px-1 m-1" src="./assets/images/trooper.webp" alt="Trooper">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">130</h4>
             </div>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="150">
           <div class="card bg-success card-size p-1">
-              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Dark Vader</h4>
+              <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Dark Vader</h4>
               <img class="px-1 m-1" src="./assets/images/vader.webp" alt="Vader">
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">150</h4>
             </div>
@@ -111,10 +111,10 @@
       <!-- single img of current enemy will be display here -->
     </div>
     <!-- row to display current fight info -->
-    <div class="row mt-4">
+    <div id="fightInfoRow" class="row mt-4 invisible">
       <div class="col text-light">
-          <h4>You Attack <span id="attackerName"></span> by <span id="attackerHit">100</span></h4>
-          <h4><span id="enemyName"></span> attack you by <span id="enemyHit">100</span></h4>
+          <h4>You Attack <span class="setEnemyName"></span> by : <span id="attackerHit"></span></h4>
+          <h4><span class="setEnemyName"></span> attack you by : <span id="enemyHit"></span></h4>
       </div>
       
     </div>
