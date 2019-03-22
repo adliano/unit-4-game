@@ -119,19 +119,28 @@ $(function () {
     // add onclick event to Attack button
     //////////////////////////////////////////
     $("#btn-attack").on("click", function () {
-        
-        // Increase Attacker HP by 15% of his attack rate 
-        // each time attack happen
-        userAttackRate += Math.round(userAttackRate * 15 / 100 );
-        alert(userAttackRate);
+
+        console.log(`attackerHealth : ${attackerHealth}`);
+        console.log(`enemyAttackRate : ${enemyAttackRate}`);
+
+        attackerHealth = attackerHealth - enemyAttackRate;
+
         // Display updated Attacker HPRate
-        $(currentAttacker).find(".HPRate").html((attackerHealth - enemyAttackRate));
+        $(currentAttacker).find(".HPRate").html(attackerHealth);
+
+        console.log(`total : ${attackerHealth}`);
+        
+
+        enemyHealth = enemyHealth - userAttackRate;
         // Display Updated Enemy HPRate
-        $(currentEnemy).find(".HPRate").html((enemyHealth - userAttackRate));
+        $(currentEnemy).find(".HPRate").html(enemyHealth);
         // Display attacker rate
         $("#attackerHit").html(userAttackRate);
         // Display enemy attack rate
         $("#enemyHit").html(enemyAttackRate);
+        // Increase Attacker HP by 15% of his attack rate 
+        // each time attack happen
+        userAttackRate += Math.round(userAttackRate * 15 / 100 );
         // Display Fight Info after Attach button clicked
         $("#fightInfoRow").removeClass("invisible");
     });
