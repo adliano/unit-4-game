@@ -13,11 +13,11 @@ $(document).ready(function () {
     var isAttackerSelected = false;
     var isEnemySelected = false;
     // Attacker and Enemy attack rates
-    var userAttackRate = 0;
-    var enemyAttackRate = 0;
+    //var userAttackRate = 0;
+    //var enemyAttackRate = 0;
     // Attacker and Enemy HP rate
-    var userHealth = 0;
-    var enemyHealth = 0;
+    //var userHealth = 0;
+    //var enemyHealth = 0;
     // ********************************* //
 
     /******************************************************************************/ 
@@ -39,12 +39,20 @@ $(document).ready(function () {
     //// this will be the first event listener to be called, inside we will use some  ////
     //// flags (Bollean) to void user click on selected character twice               ////
     //////////////////////////////////////////////////////////////////////////////////////
-    $(".setCharacter").not(".attacker").on("click", function (event) {
+    $(".setCharacter").not(document.getElementById("test")).on("click", function (event) {
         
         // Remove the onclick event from attacker
         //$(this).off("click");
         // Check if user selected the Attacker
         if(!isAttackerSelected){
+
+            let _currentCharacter = $(event.currentTarget);
+            _currentCharacter.removeClass("setCharacter");
+            _currentCharacter.attr('id','test');
+            console.dir(event.currentTarget);
+
+
+
             // Get all elements except the one user selected
             let _siblings = $(this).siblings();
             // Remove the green backgroung color (Bootstrap)
@@ -65,7 +73,7 @@ $(document).ready(function () {
             /////------- DEBUGGING ------\\\\\\
             //console.log(userHealth);
             // Change the satus of the flag
-            isAttackerSelected = !isAttackerSelected;
+            isAttackerSelected = true;
             /////------- DEBUGGING ------\\\\\\
             console.log(isAttackerSelected);
             
