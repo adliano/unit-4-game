@@ -5,7 +5,11 @@ Berkely Bootcamp
 JS file to hold all JQuery code used for RPG game
 */
 
-$(document).ready(function () {
+// $(function() {
+//     console.log( "ready!" );
+// });
+
+$(function () {
 
     // ******** Global Variables ******** \\
     // Flags (Booleans) used to control when
@@ -39,19 +43,18 @@ $(document).ready(function () {
     //// this will be the first event listener to be called, inside we will use some  ////
     //// flags (Bollean) to void user click on selected character twice               ////
     //////////////////////////////////////////////////////////////////////////////////////
-    $(".setCharacter").not(document.getElementById("test")).on("click", function (event) {
+    $(".setCharacter").on("click", function (event) {
         
-        // Remove the onclick event from attacker
-        //$(this).off("click");
         // Check if user selected the Attacker
         if(!isAttackerSelected){
 
-            let _currentCharacter = $(event.currentTarget);
-            _currentCharacter.removeClass("setCharacter");
-            _currentCharacter.attr('id','test');
-            console.dir(event.currentTarget);
+            let _attacker = $(event.currentTarget);
+            // Remove the class used to trig the onclick event
+            _attacker.removeClass("setCharacter");
+            // Remove the onclick event from attacker
+            $(_attacker).prop("onclick",null).off("click");
 
-
+            //console.dir(event.currentTarget);
 
             // Get all elements except the one user selected
             let _siblings = $(this).siblings();
@@ -69,19 +72,18 @@ $(document).ready(function () {
             // Generate the Attack rate for user
             userAttackRate = rand(5,25);
             // Get Attacker Health
-            //userHealth = $(this).attr("data-health");
+            userHealth = $(_attacker).attr("data-health");
             /////------- DEBUGGING ------\\\\\\
-            //console.log(userHealth);
+            alert(userHealth);
             // Change the satus of the flag
-            isAttackerSelected = true;
+            isAttackerSelected = !isAttackerSelected;
             /////------- DEBUGGING ------\\\\\\
             console.log(isAttackerSelected);
-            
         }
         // Check if user selected the Enemy
         else if(!isEnemySelected){
             // Get Selected enemy
-            let _enemy = $(this);
+            let _enemy = $(event.currentTarget);
             // Remove the yellow bacground (Bootstrap)
             _enemy.children(".card").removeClass("bg-warning");
             // Add a Red background (Bootstrap)
@@ -97,7 +99,7 @@ $(document).ready(function () {
             // Generate enemy attack rate
             enemyAttackRate = rand(5,25);
             // Remove the onclick event from enemy
-            //_enemy.off("click");
+            $(_enemy).prop("onclick",null).off("click");
             // Change the satus of the flag
             isEnemySelected = !isEnemySelected;
         } 
@@ -112,7 +114,6 @@ $(document).ready(function () {
     $("#btn-attack").on("click", function () {
         // debugging
         console.log("works!");
-        isEnemySelected = false;
     });
 
     ////////////////////////////////////////////
@@ -122,5 +123,4 @@ $(document).ready(function () {
         location.reload();
         console.log("reload page");
     });
-
 });
