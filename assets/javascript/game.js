@@ -119,6 +119,8 @@ $(function () {
             // Get Selected enemy
             currentEnemy = $(event.currentTarget);
             initEnemy(currentEnemy);
+            // Hide the Available enemy row to have a clear view
+            $("#enemiesRow").addClass("invisible");
             // Change the satus of the flag
             isEnemySelected = !isEnemySelected;
         }
@@ -130,10 +132,9 @@ $(function () {
     ///////////////////////////////////////////
     // add onclick event to Attack button
     //////////////////////////////////////////
-    // <h4>You Attack <span class="setEnemyName"></span> by : <span id="attackerHit"></span></h4>
-    // <h4><span class="setEnemyName"></span> attack you by : <span id="enemyHit"></span></h4>
     $("#btn-attack").on("click", function () {
         let _fightInfo = "";
+        // TODO: What about hide the attack button?
         if (!isEnemySelected) {
             // Check if have any enemy selected
             _fightInfo = `Select an enemy`;
@@ -159,9 +160,10 @@ $(function () {
             // Check if got Game Over
 
             if (enemyHealth < 1) {
-                // Means Attacker won
+                // Means Attacker won the fight
                 _fightInfo = `You Defeat ${enemyName} <br> You can Choose another enemy`;
                 $(currentEnemy).addClass("invisible");
+                $("#enemiesRow").removeClass("invisible");
                 isEnemySelected = !isEnemySelected;
             }
             else if (attackerHealth < 1) {
