@@ -15,6 +15,9 @@ $(function () {
     // Attacker and Enemy State
     var currentAttacker;
     var currentEnemy;
+    // Attackerand Enemy Name(String)
+    var attackerName = "";
+    var enemyName = "";
     // Attacker and Enemy attack rates
     var userAttackRate = 0;
     var enemyAttackRate = 0;
@@ -25,92 +28,101 @@ $(function () {
     //var attackerName = "";
     //var enemyName = "";
 
-    /******************************************************************************/ 
-    /* * * * * * * * * * * * * * * * * * rand() * * * * * * * * * * * * * * * * * */ 
-    /******************************************************************************/ 
+    /******************************************************************************/
+    /* * * * * * * * * * * * * * * * * * rand() * * * * * * * * * * * * * * * * * */
+    /******************************************************************************/
     // Function that generate random number                                          
     // this will return a number beteween the provided range                         
     // Math.random() return number between 0 (inclusive) and 1 (exclusive)           
     // in this case, The maximum is inclusive and the minimum is inclusive
     // it will be used to generate a random attack number           
-    function rand(min, max) {                                                        
-        min = Math.ceil(min);                                                        
-        max = Math.floor(max);                                                       
-        return Math.floor(Math.random() * (max - min + 1)) + min;                    
-    } 
+    function rand(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    /******************************************************************************/
+    /* * * * * * * * * * * * * * * * initAttacker() * * * * * * * * * * * * * * * */
+    /******************************************************************************/
+    // Function to initiate attacker
+    var initAttacker = function (attacker) {
+        // Remove the class used to trig the onclick event,
+        // by removing the onclick will not be called again
+        attacker.removeClass("setCharacter");
+        // Another Approach to Remove the onclick event from attacker \\
+        // ***** $(attacker).prop("onclick",null).off("click"); **** \\
 
+        // Get all elements except the one user selected
+        let _siblings = attacker.siblings();
+        // Remove the green backgroung color (Bootstrap)
+        _siblings.children(".card").removeClass("bg-success"); /////////////
+        // Add a Yellow background color (Bootstrap)
+        _siblings.children(".card").addClass("bg-warning"); ///////////
+        // Append all elements to the Enemy Column 
+        // *** (except the selected element) ***
+        $("#enemiesRow").append(_siblings);
+        // Display Enemy header
+        $("#enemiesHeader").removeClass("invisible");
+        // Change Attacker Header Text
+        $("#attackerHeader").text("Your Attacker");
+        // Generate the Attack rate for user
+        userAttackRate = rand(5, 15);
+        // Get Attacker Health
+        attackerHealth = $(attacker).find(".HPRate").text();
+    };
+    /*****************************************************************************/
+    /* * * * * * * * * * * * * * * * initEnemy() * * * * * * * * * * * * * * * * */
+    /*****************************************************************************/
+    // function to initiate enemy
+    var initEnemy = function (enemy) {
+        // Remove the yellow bacground (Bootstrap)
+        enemy.children(".card").removeClass("bg-warning");
+        // Add a Red background (Bootstrap)
+        enemy.children(".card").addClass("bg-danger");
+        // Add the selected enemy to enemyRow
+        $("#enemyRow").append(enemy);
+        // Display Fight Header
+        $("#fightHeader").removeClass("invisible");
+        // Display Enemy Header
+        $("#enemyHeader").removeClass("invisible");
+        // Display Attack Button
+        $("#btn-attack").removeClass("invisible");
+        // get enemy name
+        enemyName = $(enemy).find(".getCharacterName").text();
+        // set enemy name to fightInfoRow
+        //************* */$(".setEnemyName").html(_enemyName);
+        // Generate enemy attack rate
+        enemyAttackRate = rand(5, 25);
+        // Remove the onclick event from enemy
+        //$(enemy).prop("onclick",null).off("click");
+        enemy.removeClass("setCharacter");
+        // Get enemy health
+        //enemyHealth = $(enemy).attr("data-health");
+        enemyHealth = $(enemy).find(".HPRate").text();
+        //console.log(`enemyHealth : ${enemyHealth}`);
+    };
     /////////////////////////////////// ONCLICK //////////////////////////////////////////
     //// onclick event added using class selector $(".setCharacter") for every image  ////
     //// this will be the first event listener to be called, inside we will use some  ////
     //// flags (Bollean) to void user click on selected character twice               ////
     //////////////////////////////////////////////////////////////////////////////////////
-    $("#imagesContainer").on("click",".setCharacter", function (event) {
+    $("#imagesContainer").on("click", ".setCharacter", function (event) {
         // Check if user selected the Attacker
-        if(!isAttackerSelected){
+        if (!isAttackerSelected) {
             currentAttacker = $(event.currentTarget);
-            // Remove the class used to trig the onclick event,
-            // by removing the onclick will not be called again
-            currentAttacker.removeClass("setCharacter");
-            // Another Approach to Remove the onclick event from attacker \\
-            // ***** $(currentAttacker).prop("onclick",null).off("click"); **** \\
-
-            // Get all elements except the one user selected
-            let _siblings = $(this).siblings();
-            // Remove the green backgroung color (Bootstrap)
-            _siblings.children(".card").removeClass("bg-success"); /////////////
-            // Add a Yellow background color (Bootstrap)
-            _siblings.children(".card").addClass("bg-warning"); ///////////
-            // Append all elements to the Enemy Column 
-            // *** (except the selected element) ***
-            $("#enemiesRow").append(_siblings);
-            // Display Enemy header
-            $("#enemiesHeader").removeClass("invisible");
-            // Change Attacker Header Text
-            $("#attackerHeader").text("Your Attacker");
-            // get attacker name
-            // attackerName = $(currentAttacker).find(".getCharacterName").text();
-            // alert(attackerName);
-            // Generate the Attack rate for user
-            userAttackRate = rand(5,15);
-            // Get Attacker Health
-            attackerHealth = $(currentAttacker).find(".HPRate").text();
+            initAttacker(currentAttacker);
             // Change the satus of the flag
             isAttackerSelected = !isAttackerSelected;
-            /////------- DEBUGGING ------\\\\\\
         }
         // Check if user selected the Enemy
-        else if(!isEnemySelected){
+        else if (!isEnemySelected) {
             // Get Selected enemy
             currentEnemy = $(event.currentTarget);
-            // Remove the yellow bacground (Bootstrap)
-            currentEnemy.children(".card").removeClass("bg-warning");
-            // Add a Red background (Bootstrap)
-            currentEnemy.children(".card").addClass("bg-danger");
-            // Add the selected enemy to enemyRow
-            $("#enemyRow").append(currentEnemy);
-            // Display Fight Header
-            $("#fightHeader").removeClass("invisible");
-            // Display Enemy Header
-            $("#enemyHeader").removeClass("invisible");
-            // Display Attack Button
-            $("#btn-attack").removeClass("invisible");
-            // get enemy name
-            let _enemyName = $(currentEnemy).find(".getCharacterName").text();
-            // set enemy name to fightInfoRow
-            $(".setEnemyName").html(_enemyName);
-            // Generate enemy attack rate
-            enemyAttackRate = rand(5,25);
-            // Remove the onclick event from enemy
-            //$(currentEnemy).prop("onclick",null).off("click");
-            currentEnemy.removeClass("setCharacter");
-            // Get enemy health
-            //enemyHealth = $(currentEnemy).attr("data-health");
-            enemyHealth = $(currentEnemy).find(".HPRate").text();
-            //console.log(`enemyHealth : ${enemyHealth}`);
+            initEnemy(currentEnemy);
             // Change the satus of the flag
             isEnemySelected = !isEnemySelected;
-        } 
-        else{
+        }
+        else {
             console.log("May The Force Be With You!");
         }
     }); // :::: end of setCharacter onclick event listener ::::
@@ -118,39 +130,55 @@ $(function () {
     ///////////////////////////////////////////
     // add onclick event to Attack button
     //////////////////////////////////////////
+    // <h4>You Attack <span class="setEnemyName"></span> by : <span id="attackerHit"></span></h4>
+    // <h4><span class="setEnemyName"></span> attack you by : <span id="enemyHit"></span></h4>
     $("#btn-attack").on("click", function () {
+        let _fightInfo = "";
+        if (!isEnemySelected) {
+            // Check if have any enemy selected
+            _fightInfo = `Select an enemy`;
+        }
+        else {
+            attackerHealth = attackerHealth - enemyAttackRate;
+            // Display updated Attacker HPRate
+            $(currentAttacker).find(".HPRate").html(attackerHealth < 0 ? "0" : attackerHealth);
+            // update enemy HPRate        
+            enemyHealth = enemyHealth - userAttackRate;
+            // Display Updated Enemy HPRate
+            $(currentEnemy).find(".HPRate").html(enemyHealth < 0 ? "0" : enemyHealth);
+            // Display attacker rate
+            //******************* */$("#attackerHit").html(userAttackRate);
+            // Display enemy attack rate
+            // ***************** $("#enemyHit").html(enemyAttackRate);
+            // Increase Attacker HP by 10% of his attack rate 
+            // each time attack happen
+            userAttackRate += Math.round(userAttackRate * 10 / 100);
+            // Display Fight Info after Attach button clicked
+            // ******************* $("#fightInfoRow").removeClass("invisible");
+            _fightInfo = `You Attack ${enemyName} by : ${userAttackRate} <br> ${enemyName} attack you by : ${enemyAttackRate}`;
+            // Check if got Game Over
 
-        console.log(`attackerHealth : ${attackerHealth}`);
-        console.log(`enemyAttackRate : ${enemyAttackRate}`);
+            if (enemyHealth < 1) {
+                // Means Attacker won
+                _fightInfo = `You Defeat ${enemyName} <br> You can Choose another enemy`;
+                $(currentEnemy).addClass("invisible");
+                isEnemySelected = !isEnemySelected;
+            }
+            else if (attackerHealth < 1) {
+                // You Loose, Enemy Won
+                _fightInfo = `You been defeated. <br> GAME OVER!`;
+                $("#relod-attack").removeClass("invisible");
+            }
+        }
 
-        attackerHealth = attackerHealth - enemyAttackRate;
-
-        // Display updated Attacker HPRate
-        $(currentAttacker).find(".HPRate").html(attackerHealth < 0 ? "0" : attackerHealth);
-
-        console.log(`total : ${attackerHealth}`);
-        
-        enemyHealth = enemyHealth - userAttackRate;
-        // Display Updated Enemy HPRate
-        $(currentEnemy).find(".HPRate").html(enemyHealth < 0 ? "0" : enemyHealth);
-        // Display attacker rate
-        $("#attackerHit").html(userAttackRate);
-        // Display enemy attack rate
-        $("#enemyHit").html(enemyAttackRate);
-        // Increase Attacker HP by 15% of his attack rate 
-        // each time attack happen
-        userAttackRate += Math.round(userAttackRate * 15 / 100 );
-        // Display Fight Info after Attach button clicked
-        $("#fightInfoRow").removeClass("invisible");
-        // Check if got Game Over
+        $("#fightInfoRow").html(`<h4>${_fightInfo}</h4>`);
 
     });
-
     ////////////////////////////////////////////
     // onclick listener to handle page relod
     ////////////////////////////////////////////
-    $("#relod-attack").on("click", function(){
+    $("#relod-attack").on("click", function () {
         location.reload();
-        console.log("reload page");
+        //console.log("reload page");
     });
 });
