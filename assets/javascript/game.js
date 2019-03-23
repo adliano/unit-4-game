@@ -36,11 +36,27 @@ $(function () {
     // Math.random() return number between 0 (inclusive) and 1 (exclusive)           
     // in this case, The maximum is inclusive and the minimum is inclusive
     // it will be used to generate a random attack number           
-    function rand(min, max) {
+    var rand = function(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+    /*******************************************************************************/
+    /* * * * * * * * * * * * * * * * hideElement() * * * * * * * * * * * * * * * * */
+    /*******************************************************************************/
+    var hideElements = function(...elements){
+        for(element of elements){
+            $(element).addClass("invisible");
+        }
     }
+    /*******************************************************************************/
+    /* * * * * * * * * * * * * * * * showElement() * * * * * * * * * * * * * * * * */
+    /*******************************************************************************/
+    var showElements = function(...elements){
+        for(element of elements){
+            $(element).removeClass("invisible");
+        }
+    }; // TODO: Ask about this ';' do we need it ?
     /******************************************************************************/
     /* * * * * * * * * * * * * * * * initAttacker() * * * * * * * * * * * * * * * */
     /******************************************************************************/
@@ -51,7 +67,6 @@ $(function () {
         attacker.removeClass("setCharacter");
         // Another Approach to Remove the onclick event from attacker \\
         // ***** $(attacker).prop("onclick",null).off("click"); **** \\
-
         // Get all elements except the one user selected
         let _siblings = attacker.siblings();
         // Remove the green backgroung color (Bootstrap)
@@ -61,8 +76,7 @@ $(function () {
         // Append all elements to the Enemy Column 
         // *** (except the selected element) ***
         $("#enemiesRow").append(_siblings);
-        // Display Enemy header
-        $("#enemiesHeader").removeClass("invisible");
+        // $("#enemiesHeader").removeClass("invisible");
         // Change Attacker Header Text
         $("#attackerHeader").text("Your Attacker");
         // Generate the Attack rate for user
@@ -81,12 +95,6 @@ $(function () {
         enemy.children(".card").addClass("bg-danger");
         // Add the selected enemy to enemyRow
         $("#enemyRow").append(enemy);
-        // Display Fight Header
-        $("#fightHeader").removeClass("invisible");
-        // Display Enemy Header
-        $("#enemyHeader").removeClass("invisible");
-        // Display Attack Button
-        $("#btn-attack").removeClass("invisible");
         // get enemy name
         enemyName = $(enemy).find(".getCharacterName").text();
         // set enemy name to fightInfoRow
@@ -111,6 +119,8 @@ $(function () {
         if (!isAttackerSelected) {
             currentAttacker = $(event.currentTarget);
             initAttacker(currentAttacker);
+            // Display Enemy header
+            showElements($("#enemiesHeader"));
             // Change the satus of the flag
             isAttackerSelected = !isAttackerSelected;
         }
@@ -119,6 +129,13 @@ $(function () {
             // Get Selected enemy
             currentEnemy = $(event.currentTarget);
             initEnemy(currentEnemy);
+            // Display Fight Header
+            //$("#fightHeader").removeClass("invisible");
+            // Display Enemy Header
+            //$("#enemyHeader").removeClass("invisible");
+            // Display Attack Button
+            //$("#btn-attack").removeClass("invisible");
+            showElements($("#fightHeader"),$("#enemyHeader"),$("#btn-attack"));
             // Hide the Available enemy row to have a clear view
             $("#enemiesRow").addClass("invisible");
             // Change the satus of the flag
