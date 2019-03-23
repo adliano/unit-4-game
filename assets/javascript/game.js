@@ -126,14 +126,13 @@ $(function () {
         attackerHealth = attackerHealth - enemyAttackRate;
 
         // Display updated Attacker HPRate
-        $(currentAttacker).find(".HPRate").html(attackerHealth);
+        $(currentAttacker).find(".HPRate").html(attackerHealth < 0 ? "0" : attackerHealth);
 
         console.log(`total : ${attackerHealth}`);
         
-
         enemyHealth = enemyHealth - userAttackRate;
         // Display Updated Enemy HPRate
-        $(currentEnemy).find(".HPRate").html(enemyHealth);
+        $(currentEnemy).find(".HPRate").html(enemyHealth < 0 ? "0" : enemyHealth);
         // Display attacker rate
         $("#attackerHit").html(userAttackRate);
         // Display enemy attack rate
@@ -143,6 +142,8 @@ $(function () {
         userAttackRate += Math.round(userAttackRate * 15 / 100 );
         // Display Fight Info after Attach button clicked
         $("#fightInfoRow").removeClass("invisible");
+        // Check if got Game Over
+
     });
 
     ////////////////////////////////////////////
