@@ -7,40 +7,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- RESEt CSS -->
   <link rel="stylesheet" href="./assets/css/reset.css">
-  
   <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
   <!-- Style css -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <!-- Game Javascript -->
   <script src="./assets/javascript/game.js"></script>
   <!-- TITLE -->
   <title>RPG Game</title>
-
 </head>
 <!-- ************************** -->
 <!-- * * * * * BODY * * * * * * -->
 <!-- ************************** -->
-<!-- TODO: SET BACKGROUND IMAGE  -->
-
-<body class="bg-dark">
+<body id="animate-area" class="bg-dark">
   <!-- HEADER -->
   <h1 class="text-light text-right mr-5 p-3 pr-5">Star Wars RPG!</h1>
   <!-- FIRST ROW WITH IMG  -->
-  <div id="imagesContainer" class="container mb-5 pb-5">
-    <h3 id="attackerHeader" class="text-light">Choose Your Attacker</h3>
-    <div class="row">
+  <div id="imagesContainer" class="pb-5">
+    <h3 id="attackerHeader" class="text-light mx-5">Choose Your Attacker</h3>
+    <div class="row mx-5">
       <!-- Columns with the Characters set to show: -->
-      <!--  6 Imgs on lg -->
-      <!--  3 Imgs on md -->
-      <!--  1 Img  on sm -->
+      <!--  6 Imgs on lg, 3 Imgs on md, 1 Img  on sm -->
+      <!-- Chewbacca -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="120">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Chewbacca</h4>
@@ -48,6 +41,7 @@
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">120</h4>
             </div>
       </div>
+      <!-- Han Solo -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="140">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Han Solo</h4>
@@ -55,6 +49,7 @@
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">140</h4>
             </div>
       </div>
+      <!-- Leia -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="110">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Leia</h4>
@@ -62,6 +57,7 @@
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">110</h4>
             </div>
       </div>
+      <!-- Luke -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="150">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Luke</h4>
@@ -69,6 +65,7 @@
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">150</h4>
             </div>
       </div>
+      <!-- Trooper -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="130">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Trooper</h4>
@@ -76,6 +73,7 @@
               <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light HPRate">130</h4>
             </div>
       </div>
+      <!-- Vader -->
       <div class="col-lg-2 col-md-4 col-sm-12 p-1 setCharacter" data-health="150">
           <div class="card bg-success card-size p-1">
               <h4 class="card-title text-center p-2 mx-2  bg-primary text-light getCharacterName">Dark Vader</h4>
@@ -85,57 +83,35 @@
       </div>
     </div><!-- :::: END Attacker row :::: -->
     <!-- This Header will be display after User select Attacker -->
-    <h3 id="enemiesHeader" class="text-light my-2 invisible">Enemies Available To Attack</h3>
-
+    <h3 id="enemiesHeader" class="text-light my-2 mx-5 invisible">Enemies Available To Attack</h3>
     <!-- Enemies ROW -->
     <!-- ROW to Hold Enemies remaining to play  -->
-    <div id="enemiesRow" class="row">
-        <!-- 
+    <div id="enemiesRow" class="row mx-5">
+      <!-- 
         img will show here dynamicly we will have 7 images 
         on row one after user select one we will show 6 images 
         to this row
       -->
     </div><!-- :::: END second img row :::: -->
     <!-- This Header will be display after user selects his Enemy -->
-    <h3 id="fightHeader" class="text-light my-2 invisible">Fight Section</h3>
-
+    <h3 id="fightHeader" class="text-light my-2 mx-5 invisible">Fight Section</h3>
     <!-- Attack Button -->
     <!-- This Button will be display after user selects his Enemy -->
-    <button id="btn-attack" type="button" class="btn btn-primary my-2 w-25 invisible">Attack</button>
+    <button id="btn-attack" type="button" class="btn btn-primary my-2 w-25 mx-5 invisible">Attack</button>
     <!-- This Header will be display after user selects his Enemy -->
-    <h3 id="enemyHeader" class="text-light my-2 invisible">Your Enemy</h3>
+    <h3 id="enemyHeader" class="text-light my-2 mx-5 invisible">Your Enemy</h3>
     <!-- Third Img row -->
     <!-- Row to hold current enemy -->
-    <div id="enemyRow"  class="row">
+    <div id="enemyRow"  class="row mx-5">
       <!-- enemy img will be added here dynamically -->
       <!-- single img of current enemy will be display here -->
     </div>
     <!-- row to display current fight info -->
-    <div class="row mt-4">
-      <div id="fightInfoRow" class="col text-light">
-          <!-- <h4>You Attack <span class="setEnemyName"></span> by : <span id="attackerHit"></span></h4>
-          <h4><span class="setEnemyName"></span> attack you by : <span id="enemyHit"></span></h4> -->
-      </div>
-      
+    <div class="row mt-4 mx-5">
+      <div id="fightInfoRow" class="col text-light"></div>
     </div>
     <!-- If game over, user will press this Button to reload page -->
-    <!-- TODO: Display after game over or User won -->
-    <button id="relod-attack" type="button" class="btn btn-primary my-2 w-25 invisible">Restart</button>
+    <button id="relod-attack" type="button" class="btn btn-primary my-2 w-25 mx-5 invisible">Restart</button>
   </div><!-- :::: END of container :::: -->
 </body>
-
 </html>
-
-  <!-- <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/chewbacca.webp" alt="Chewbacca" attribute="0">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/han-solo.webp" alt="Han Solo"attribute="1">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/leia.webp" alt="Leia" >
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/luke.webp" alt="Luke" attribute="3">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/poe.webp" alt="Poe" attribute="4">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/storm-trooper.webp" alt="Trooper"attribute="5">
-        <img class="pt-1 bg-success p-2 m-1 setCharacter" src="./assets/images/vader.webp" alt="Vader" attribute="6"> -->
-
-        <!-- <div class="card w-25 bg-success card-size p-1">
-          <h4 class="card-title text-center p-2 mx-2  bg-primary text-light">Leia</h4>
-          <img class="bg-success px-1 m-1 setCharacter" src="./assets/images/leia.webp" alt="Leia" >
-          <h4 class="card-title text-center p-1 mb-1 mx-2  bg-secondary text-light">120</h4>
-        </div> -->
