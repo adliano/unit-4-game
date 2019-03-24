@@ -6,7 +6,7 @@ CSS file to hold all style code used for RPG game
 */
 
 body{
-    background-image: url("../images/death_star.webp");
+    background-image: url("../images/death_star.png");
     background-repeat: no-repeat;
     background-position: right center;
 }
@@ -33,7 +33,7 @@ body{
 
 #imagesContainer	{ 
 	height: 900px; 
-	background-image: url("../images/space.webp");
+	background-image: url("../images/spaceship.png");
 	background-position: 0px 0px;
 	background-repeat: no-repeat;
 
